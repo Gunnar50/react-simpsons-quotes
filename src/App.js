@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import "./App.css";
 import Card from "./components/Card";
 
 const API_URL = "https://thesimpsonsquoteapi.glitch.me/quotes";
@@ -17,7 +18,11 @@ export default class App extends Component {
 	}
 
 	render() {
-		// console.log(this.state);
-		return <Card data={this.state.data} />;
+		if (!this.state.data) return "Loading...";
+		return (
+			<div className="container">
+				<Card data={this.state.data} />
+			</div>
+		);
 	}
 }
