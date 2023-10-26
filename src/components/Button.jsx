@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
 export default class Button extends Component {
-	onLiked = () => {};
-	onDeleted = () => {};
-
 	render() {
+		const { text, id, onCliked, liked } = this.props;
+
 		return (
 			<button
-				onClick={this.props.type === "like" ? this.onLiked : this.onDelete}
+				className={`${text.toLowerCase()}${liked ? " liked" : ""}`}
+				onClick={() => onCliked(id)}
 			>
-				{this.props.text}
+				{liked ? `Unlike` : text}
 			</button>
 		);
 	}
