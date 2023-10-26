@@ -1,0 +1,156 @@
+$img-bg: hsl(51, 91%, 58%);
+$quote-bg: hsl(202, 99%, 37%);
+$main-bg: hsl(202, 100%, 93%);
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	display: block;
+}
+body {
+	background-color: $main-bg;
+}
+
+.container {
+	margin: 1rem;
+}
+
+.cards-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+}
+
+.card {
+	color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	max-width: 375px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+	width: 100%;
+	.image {
+		position: relative;
+		background-color: $img-bg;
+		height: 300px;
+		overflow: hidden;
+		padding: 1rem;
+		img {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 270px;
+			height: auto;
+		}
+	}
+	.quote {
+		background-color: $quote-bg;
+		padding: 1rem;
+		position: relative;
+
+		h2 {
+			font-size: 1em;
+			margin-block: 1rem;
+			&::before {
+				content: "- ";
+			}
+		}
+		p {
+			font-style: italic;
+			font-size: 1.5em;
+			margin-block: 1rem;
+			span {
+				position: absolute;
+				opacity: 0.2;
+				left: 0;
+				top: 1rem;
+				font-size: 90px;
+				line-height: 0.6em;
+			}
+		}
+
+		.controls {
+			button {
+				cursor: pointer;
+				border: 0;
+				font-size: 1em;
+				padding: 0.5rem;
+				width: 100px;
+				margin-right: 1rem;
+				color: #fff;
+				border-radius: 10px;
+				box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+			}
+			.like {
+				background-color: #0119bc;
+				&.liked {
+					background-color: #01bca4;
+				}
+			}
+			.delete {
+				background-color: #bc4601;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.cards-container {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1.5rem;
+	}
+
+	.card {
+		max-width: 800px;
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+
+		&.right {
+			grid-template-columns: 2fr 1fr;
+		}
+
+		.image {
+			grid-row: 1 / -1;
+			min-height: 300px;
+			align-self: stretch;
+			height: auto;
+			img {
+				position: absolute;
+				left: 0;
+				transform: none;
+				max-width: 100%;
+				height: auto;
+			}
+		}
+
+		.quote {
+			padding: 1rem;
+			min-height: 100px;
+			overflow: auto;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			p {
+				position: relative;
+				span {
+					top: -20px;
+					left: -20px;
+				}
+			}
+		}
+	}
+}
