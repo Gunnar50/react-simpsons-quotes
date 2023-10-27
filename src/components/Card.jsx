@@ -17,14 +17,12 @@ export default class Card extends Component {
 			onLiked,
 			onDelete,
 		} = this.props;
+
 		return (
 			<div className={`card ${characterDirection.toLowerCase()}`}>
-				{console.log(characterDirection)}
-				{characterDirection === "Left" && (
-					<div className="image">
-						<Image image={image} alt={name} />
-					</div>
-				)}
+				<div className="image">
+					<Image image={image} alt={name} />
+				</div>
 
 				<div className="quote">
 					<Quote quote={quote} />
@@ -36,12 +34,6 @@ export default class Card extends Component {
 						onDelete={onDelete}
 					/>
 				</div>
-
-				{characterDirection === "Right" && (
-					<div className="image">
-						<Image image={image} alt={name} />
-					</div>
-				)}
 			</div>
 		);
 	}
