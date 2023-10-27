@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/images/The-Simpsons-Logo-PNG.png";
-import Filter from "../Filter";
-import Sort from "../Sort";
+import Filter from "./Filter";
+import Sort from "./Sort";
 
 function Header(props) {
 	return (
@@ -13,7 +13,10 @@ function Header(props) {
 				<Sort onSortSelectionChange={props.onSortSelectionChange} />
 
 				{/* filter component */}
-				<Filter onFilterChange={props.onFilterChange} />
+				<Filter
+					onFilterChange={props.onFilterChange}
+					onFilterSelectionChange={props.onFilterSelectionChange}
+				/>
 
 				<h2>Total liked count: {props.likedCount}</h2>
 			</div>
