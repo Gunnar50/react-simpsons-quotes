@@ -118,10 +118,6 @@ body {
 		display: grid;
 		grid-template-columns: 1fr 2fr;
 
-		&.right {
-			grid-template-columns: 2fr 1fr;
-		}
-
 		.image {
 			grid-row: 1 / -1;
 			min-height: 300px;
@@ -133,6 +129,13 @@ body {
 				transform: none;
 				max-width: 100%;
 				height: auto;
+			}
+		}
+
+		&.right {
+			grid-template-columns: 2fr 1fr;
+			.image {
+				grid-column: 2 / 3;
 			}
 		}
 
