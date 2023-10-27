@@ -7,7 +7,7 @@ function Header(props) {
 	return (
 		<header>
 			<div className="container">
-				<img src={logo} />
+				<img src={logo} alt="Logo" />
 
 				{/* sort component */}
 				<Sort onSortSelectionChange={props.onSortSelectionChange} />
