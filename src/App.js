@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import Card from "./components/Card";
-import Filter from "./components/Filter";
-import Sort from "./components/Sort";
+import Header from "./components/Header/Header";
 import "./styles/App.scss";
 import { filterByName } from "./utils/filter";
 import { addIDs } from "./utils/generateUniqueID";
@@ -60,27 +59,29 @@ export default class App extends Component {
 		sortData(filtered, sort);
 
 		return (
-			<div className="container">
-				{/* sort component */}
-				<Sort onSortSelectionChange={this.onSortSelectionChange} />
-
-				{/* filter component */}
-				<Filter onFilterChange={this.onFilterChange} />
-
-				<h2>Total liked count: {likedCount}</h2>
-				<div className="cards-container">
-					{filtered.map((character, i) => {
-						return (
-							<Card
-								key={i}
-								{...character}
-								onLiked={this.onLiked}
-								onDelete={this.onDelete}
-							/>
-						);
-					})}
-				</div>
-			</div>
+			<>
+				<Header
+					onSortSelectionChange={this.onSortSelectionChange}
+					onFilterChange={this.onFilterChange}
+					likedCount={likedCount}
+				/>
+				<main>
+					<div className="container">
+						<div className="cards-container">
+							{filtered.map((character, i) => {
+								return (
+									<Card
+										key={i}
+										{...character}
+										onLiked={this.onLiked}
+										onDelete={this.onDelete}
+									/>
+								);
+							})}
+						</div>
+					</div>
+				</main>
+			</>
 		);
 	}
 }
