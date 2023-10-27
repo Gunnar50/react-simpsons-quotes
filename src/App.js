@@ -39,6 +39,10 @@ export default class App extends Component {
 		this.setState({ filter: e.target.value });
 	};
 
+	onFilterSelectionChange = (e) => {
+		this.setState({ filterType: e.target.value });
+	};
+
 	async componentDidMount() {
 		try {
 			const { data } = await axios.get(`${API_URL}?count=10`);
@@ -50,11 +54,12 @@ export default class App extends Component {
 	}
 
 	render() {
-		const { data, likedCount, sort, filter } = this.state;
+		const { data, likedCount, sort, filter, filterType } = this.state;
 		if (!data) return "Loading...";
 
 		const _data = [...data];
-		const filtered = filterByName(_data, filter);
+
+		const filtered = filterByName(_data, filter, filterType);
 
 		sortData(filtered, sort);
 
@@ -63,6 +68,7 @@ export default class App extends Component {
 				<Header
 					onSortSelectionChange={this.onSortSelectionChange}
 					onFilterChange={this.onFilterChange}
+					onFilterSelectionChange={this.onFilterSelectionChange}
 					likedCount={likedCount}
 				/>
 				<main>
