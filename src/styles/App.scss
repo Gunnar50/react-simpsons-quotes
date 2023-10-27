@@ -1,6 +1,13 @@
 $img-bg: hsl(51, 91%, 58%);
-$quote-bg: hsl(202, 99%, 37%);
-$main-bg: hsl(202, 100%, 93%);
+$quote-bg: #0177bc;
+$main-bg: hsl(200, 68%, 74%);
+
+:root {
+	--btn-primary: hsl(0, 0%, 91%);
+	--btn-secondary: #bc4601;
+	--white: #fff;
+	--dark: #222;
+}
 
 *,
 *::before,
@@ -15,30 +22,43 @@ $main-bg: hsl(202, 100%, 93%);
 
 img {
 	display: block;
+	width: 100%;
 }
 body {
 	background-color: $main-bg;
 }
 
 .container {
-	margin: 1rem;
+	margin: 0 auto;
+	max-width: 375px;
+	padding: 1rem;
 }
 
-.cards-container {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	align-items: center;
+.filter,
+.sort {
+	input,
+	select {
+		padding: 10px;
+		border: 2px solid #ccc;
+		border-radius: 5px;
+		font-size: 16px;
+		color: #555;
+		outline: none;
+		&:focus {
+			border-color: #007bff;
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+		}
+	}
 }
 
 .card {
 	color: #fff;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
-	max-width: 375px;
 	overflow: hidden;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 	width: 100%;
+	margin-bottom: 1.5rem;
 	.image {
 		position: relative;
 		background-color: $img-bg;
@@ -87,33 +107,32 @@ body {
 				padding: 0.5rem;
 				width: 100px;
 				margin-right: 1rem;
-				color: #fff;
-				border-radius: 10px;
-				box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+				color: var(--bnt-colour);
+				background-color: var(--btn-bgcolour);
+				border-radius: 5px;
+				box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 			}
 			.like {
-				background-color: #0119bc;
+				--btn-bgcolour: var(--btn-primary);
+				--bnt-colour: var(--dark);
 				&.liked {
-					background-color: #01bca4;
+					--btn-bgcolour: #01bca4;
 				}
 			}
 			.delete {
-				background-color: #bc4601;
+				--bnt-colour: var(--white);
+				--btn-bgcolour: var(--btn-secondary);
 			}
 		}
 	}
 }
 
 @media screen and (min-width: 600px) {
-	.cards-container {
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 1.5rem;
+	.container {
+		max-width: 800px;
 	}
 
 	.card {
-		max-width: 800px;
 		width: 100%;
 		display: grid;
 		grid-template-columns: 1fr 2fr;
