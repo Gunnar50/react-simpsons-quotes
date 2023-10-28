@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
-import Card from "./components/Card";
 import Header from "./components/Header/Header";
+import Main from "./components/Main";
 import "./styles/App.scss";
 import { filterByName } from "./utils/filter";
 import { addIDs } from "./utils/generateUniqueID";
@@ -43,26 +43,40 @@ export default class App extends Component {
 		this.setState({ filterType: e.target.value });
 	};
 
-	async componentDidMount() {
+	generateQuotes = async () => {
 		try {
+			this.setState({ data: [], likedCount: 0 });
 			const { data } = await axios.get(`${API_URL}?count=10`);
 			const newData = addIDs(data);
 			this.setState({ data: newData });
 		} catch (e) {
 			console.log("Looks like the API is down!");
 		}
+	};
+
+	async componentDidMount() {
+		this.generateQuotes();
 	}
 
 	render() {
 		const { data, likedCount, sort, filter, filterType } = this.state;
-		if (!data) return "Loading...";
 
-		const _data = [...data];
+		let mainContent;
+		if (!data || data.length === 0) {
+			mainContent = "Loading...";
+		} else {
+			const _data = [...data];
+			const filtered = filterByName(_data, filter, filterType);
+			sortData(filtered, sort);
 
-		const filtered = filterByName(_data, filter, filterType);
-
-		sortData(filtered, sort);
-
+			mainContent = (
+				<Main
+					filtered={filtered}
+					onLiked={this.onLiked}
+					onDelete={this.onDelete}
+				/>
+			);
+		}
 		return (
 			<>
 				<Header
@@ -70,23 +84,10 @@ export default class App extends Component {
 					onFilterChange={this.onFilterChange}
 					onFilterSelectionChange={this.onFilterSelectionChange}
 					likedCount={likedCount}
+					generateQuotes={this.generateQuotes}
+					filterType={filterType}
 				/>
-				<main>
-					<div className="container">
-						<div className="cards-container">
-							{filtered.map((character, i) => {
-								return (
-									<Card
-										key={i}
-										{...character}
-										onLiked={this.onLiked}
-										onDelete={this.onDelete}
-									/>
-								);
-							})}
-						</div>
-					</div>
-				</main>
+				{mainContent}
 			</>
 		);
 	}
