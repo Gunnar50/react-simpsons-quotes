@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Button extends Component {
-	render() {
-		const { text, id, onCliked, liked } = this.props;
+const Button = (props) => {
+	const { text, id, onCliked, liked } = props;
 
-		return (
-			<button
-				className={`${text.toLowerCase()}${liked ? " liked" : ""}`}
-				onClick={() => onCliked(id)}
-			>
-				{liked ? `Unlike` : text}
-			</button>
-		);
-	}
-}
+	return (
+		<button
+			className={`${text.toLowerCase()}${liked ? " liked" : ""}`}
+			onClick={() => onCliked(id)}
+		>
+			{liked ? `Unlike` : text}
+		</button>
+	);
+};
+
+export default Button;
