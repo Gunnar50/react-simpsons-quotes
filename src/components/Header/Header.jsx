@@ -2,13 +2,14 @@ import React from "react";
 import logo from "../../assets/images/The-Simpsons-Logo-PNG.png";
 import "../../styles/Header.scss";
 import Button from "../Button";
+import Image from "../Image";
 import Inputs from "./Inputs";
 
 const Header = (props) => {
 	return (
 		<header>
 			<div className="container">
-				<img src={logo} alt="Logo" />
+				<Image image={logo} alt="Logo" />
 				<Inputs
 					onSortSelectionChange={props.onSortSelectionChange}
 					onFilterChange={props.onFilterChange}

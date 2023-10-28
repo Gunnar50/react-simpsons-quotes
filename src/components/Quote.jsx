@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Quote extends Component {
-	render() {
-		return (
-			<p>
-				<span>&#10077;</span>
-				{this.props.quote}
-			</p>
-		);
-	}
-}
+const Quote = (props) => {
+	return (
+		<p>
+			<span>&#10077;</span>
+			{props.quote}
+		</p>
+	);
+};
+export default Quote;

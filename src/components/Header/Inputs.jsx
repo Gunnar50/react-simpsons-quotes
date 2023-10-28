@@ -4,7 +4,7 @@ import Filter from "./Filter";
 import FilterBy from "./FilterBy";
 import Sort from "./Sort";
 
-function Inputs(props) {
+const Inputs = (props) => {
 	return (
 		<div className="inputs-container">
 			{/* filter component */}
@@ -21,6 +21,6 @@ function Inputs(props) {
 			<Sort onSortSelectionChange={props.onSortSelectionChange} />
 		</div>
 	);
-}
+};
 
 export default Inputs;
