@@ -1,27 +1,28 @@
 import React from "react";
 import logo from "../../assets/images/The-Simpsons-Logo-PNG.png";
-import Filter from "./Filter";
-import Sort from "./Sort";
+import "../../styles/Header.scss";
+import Button from "../Button";
+import Inputs from "./Inputs";
 
-function Header(props) {
+const Header = (props) => {
 	return (
 		<header>
 			<div className="container">
 				<img src={logo} alt="Logo" />
-
-				{/* sort component */}
-				<Sort onSortSelectionChange={props.onSortSelectionChange} />
-
-				{/* filter component */}
-				<Filter
+				<Inputs
+					onSortSelectionChange={props.onSortSelectionChange}
 					onFilterChange={props.onFilterChange}
 					onFilterSelectionChange={props.onFilterSelectionChange}
+					filterType={props.filterType}
 				/>
 
-				<h2>Total liked count: {props.likedCount}</h2>
+				<div className="sec-2">
+					<h2>Total liked count: {props.likedCount}</h2>
+					<Button text="Generate New Quotes" onCliked={props.generateQuotes} />
+				</div>
 			</div>
 		</header>
 	);
-}
+};
 
 export default Header;
