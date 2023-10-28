@@ -1,5 +1,5 @@
 export const filterByName = (data, toFilter, type) => {
-	if (type === "name-filter") {
+	if (type === "name") {
 		return data.filter((item) => {
 			return item.character.toLowerCase().includes(toFilter.toLowerCase());
 		});
