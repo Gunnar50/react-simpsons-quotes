@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../styles/App.scss";
 import Controls from "./Controls";
 import Image from "./Image";
 import Name from "./Name";
