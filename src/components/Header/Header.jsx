@@ -5,21 +5,28 @@ import Button from "../Button";
 import Image from "../Image";
 import Inputs from "./Inputs";
 
-const Header = (props) => {
+const Header = ({
+	onSortSelectionChange,
+	onFilterChange,
+	onFilterSelectionChange,
+	filterType,
+	likedCount,
+	generateQuotes,
+}) => {
 	return (
 		<header>
 			<div className="container">
 				<Image image={logo} alt="Logo" />
 				<Inputs
-					onSortSelectionChange={props.onSortSelectionChange}
-					onFilterChange={props.onFilterChange}
-					onFilterSelectionChange={props.onFilterSelectionChange}
-					filterType={props.filterType}
+					onSortSelectionChange={onSortSelectionChange}
+					onFilterChange={onFilterChange}
+					onFilterSelectionChange={onFilterSelectionChange}
+					filterType={filterType}
 				/>
 
 				<div className="sec-2">
-					<h2>Total liked count: {props.likedCount}</h2>
-					<Button text="Generate New Quotes" onCliked={props.generateQuotes} />
+					<h2>Total liked count: {likedCount}</h2>
+					<Button text="Generate New Quotes" onCliked={generateQuotes} />
 				</div>
 			</div>
 		</header>
