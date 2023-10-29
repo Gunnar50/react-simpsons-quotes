@@ -1,8 +1,6 @@
 import React from "react";
 
-const Button = (props) => {
-	const { text, id, onCliked, liked } = props;
-
+const Button = ({ text, id, onCliked, liked }) => {
 	return (
 		<button
 			className={`${text.toLowerCase()}${liked ? " liked" : ""}`}
