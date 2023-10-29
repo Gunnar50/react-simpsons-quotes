@@ -4,18 +4,16 @@ import Image from "./Image";
 import Name from "./Name";
 import Quote from "./Quote";
 
-const Card = (props) => {
-	const {
-		character: name,
-		image,
-		characterDirection,
-		quote,
-		id,
-		liked,
-		onLiked,
-		onDelete,
-	} = props;
-
+const Card = ({
+	character: name,
+	image,
+	characterDirection,
+	quote,
+	id,
+	liked,
+	onLiked,
+	onDelete,
+}) => {
 	return (
 		<div className={`card ${characterDirection.toLowerCase()}`}>
 			<div className="image">
