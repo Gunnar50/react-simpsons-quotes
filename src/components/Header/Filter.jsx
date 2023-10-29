@@ -1,12 +1,12 @@
 import React from "react";
 
-const Filter = (props) => {
+const Filter = ({ filterType, onFilterChange }) => {
 	return (
 		<input
-			placeholder={`Search by ${props.filterType ? props.filterType : "..."}`}
+			placeholder={`Search by ${filterType ? filterType : "..."}`}
 			type="text"
 			id="filter"
-			onInput={props.onFilterChange}
+			onInput={onFilterChange}
 		/>
 	);
 };
