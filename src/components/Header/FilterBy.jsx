@@ -1,11 +1,11 @@
 import React from "react";
 
-const FilterBy = (props) => {
+const FilterBy = ({ onFilterSelectionChange }) => {
 	return (
 		<select
 			name="filter-type"
 			id="filter-type"
-			onChange={props.onFilterSelectionChange}
+			onChange={onFilterSelectionChange}
 		>
 			<option value="">-- Search by --</option>
 			<option value="name">Name</option>
