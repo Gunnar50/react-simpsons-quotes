@@ -4,21 +4,22 @@ import Filter from "./Filter";
 import FilterBy from "./FilterBy";
 import Sort from "./Sort";
 
-const Inputs = (props) => {
+const Inputs = ({
+	onFilterChange,
+	onFilterSelectionChange,
+	filterType,
+	onSortSelectionChange,
+}) => {
 	return (
 		<div className="inputs-container">
 			{/* filter component */}
-			<Filter
-				onFilterChange={props.onFilterChange}
-				onFilterSelectionChange={props.onFilterSelectionChange}
-				filterType={props.filterType}
-			/>
+			<Filter onFilterChange={onFilterChange} filterType={filterType} />
 
 			{/* filter by component */}
-			<FilterBy onFilterSelectionChange={props.onFilterSelectionChange} />
+			<FilterBy onFilterSelectionChange={onFilterSelectionChange} />
 
 			{/* sort component */}
-			<Sort onSortSelectionChange={props.onSortSelectionChange} />
+			<Sort onSortSelectionChange={onSortSelectionChange} />
 		</div>
 	);
 };
