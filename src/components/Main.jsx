@@ -1,18 +1,18 @@
 import React from "react";
 import Card from "./Card";
 
-const Main = (props) => {
+const Main = ({ filtered, onLiked, onDelete }) => {
 	return (
 		<main>
 			<div className="container">
 				<div className="cards-container">
-					{props.filtered.map((character, i) => {
+					{filtered.map((character, i) => {
 						return (
 							<Card
 								key={i}
 								{...character}
-								onLiked={props.onLiked}
-								onDelete={props.onDelete}
+								onLiked={onLiked}
+								onDelete={onDelete}
 							/>
 						);
 					})}
