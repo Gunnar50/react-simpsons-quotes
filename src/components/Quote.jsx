@@ -1,10 +1,10 @@
 import React from "react";
 
-const Quote = (props) => {
+const Quote = ({ quote }) => {
 	return (
 		<p>
 			<span>&#10077;</span>
-			{props.quote}
+			{quote}
 		</p>
 	);
 };

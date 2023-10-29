@@ -1,6 +1,6 @@
 import React from "react";
 
-const Name = (props) => {
-	return <h2>{props.name}</h2>;
+const Name = ({ name }) => {
+	return <h2>{name}</h2>;
 };
 export default Name;
