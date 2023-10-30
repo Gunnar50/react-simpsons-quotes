@@ -1,0 +1,49 @@
+@keyframes skeleton-loading {
+	0% {
+		background-color: hsl(0, 0%, 80%);
+	}
+	100% {
+		background-color: hsl(200, 20%, 90%);
+	}
+}
+.skeleton-pad {
+	.skeleton {
+		animation: skeleton-loading 1.5s linear infinite alternate;
+		border-radius: 5px;
+	}
+	.card {
+		background-color: #eee;
+		.image {
+			background-color: transparent;
+			.skeleton-image {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.quote {
+			background-color: transparent;
+			.skeleton-text {
+				height: 2rem;
+				margin: 0.2rem;
+				&:last-of-type {
+					width: 80%;
+				}
+			}
+			.skeleton-subtext {
+				height: 1rem;
+				width: 50%;
+			}
+			h2::before {
+				content: "";
+			}
+
+			.controls {
+				.skeleton-button {
+					width: 5rem;
+					height: 2rem;
+				}
+			}
+		}
+	}
+}
