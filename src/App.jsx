@@ -8,6 +8,7 @@ import { addIDs } from "./utils/generateUniqueID";
 import { sortData } from "./utils/sort";
 
 const API_URL = "https://thesimpsonsquoteapi.glitch.me/quotes";
+const numberOfQuotes = 10;
 
 export default class App extends Component {
 	state = { likedCount: 0, filter: "" };
@@ -29,7 +30,16 @@ export default class App extends Component {
 		this.setState({ data: newData, likedCount });
 	};
 
-	onDelete = () => {};
+	onDelete = (idToDelete) => {
+		const newData = this.state.data.filter(
+			(character) => character.id !== idToDelete
+		);
+		this.setState({ likedCount: this.updateCount(newData) });
+
+		this.setState({
+			data: newData,
+		});
+	};
 
 	onSortSelectionChange = (e) => {
 		this.setState({ sort: e.target.value });
@@ -46,7 +56,7 @@ export default class App extends Component {
 	generateQuotes = async () => {
 		try {
 			this.setState({ data: [], likedCount: 0 });
-			const { data } = await axios.get(`${API_URL}?count=10`);
+			const { data } = await axios.get(`${API_URL}?count=${numberOfQuotes}`);
 			const newData = addIDs(data);
 			this.setState({ data: newData });
 		} catch (e) {
