@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import Header from "./components/Header/Header";
 import Main from "./components/Main";
+import Skeleton from "./components/Skeleton";
 import "./styles/App.scss";
 import { filterByName } from "./utils/filter";
 import { addIDs } from "./utils/generateUniqueID";
@@ -73,7 +74,7 @@ export default class App extends Component {
 
 		let mainContent;
 		if (!data || data.length === 0) {
-			mainContent = "Loading...";
+			mainContent = <Skeleton numberOfQuotes={numberOfQuotes} />;
 		} else {
 			const _data = [...data];
 			const filtered = filterByName(_data, filter, filterType);
