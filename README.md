@@ -6,7 +6,7 @@ This is a React-based web application designed to entertain and enlighten you wi
 
 ### 🏠 [Demo Link](https://simpsons-quote-gustavopassarella.netlify.app/)
 
-![alt text](src/assets/images/main.PNG)
+![alt text](src/assets/images/main.png)
 
 ## ✨ Features
 
