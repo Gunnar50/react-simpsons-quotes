@@ -1,18 +1,20 @@
 # The Simpsons Quote Generator
 
-## Project
+## 🌐 Project
 
 This is a React-based web application designed to entertain and enlighten you with some most iconic quotes from "The Simpsons" TV show. This app was built as a side project for The Jump Academy Bootcamp, aiming to deepen understanding of React Class Components and lifecycle methods.
 
-[Project Live Link](https://simpsons-quote-gustavopassarella.netlify.app/)
+### 🏠 [Demo Link](https://simpsons-quote-gustavopassarella.netlify.app/)
 
-## Features
+![alt text](src/assets/images/main.PNG)
+
+## ✨ Features
 
 - Generate random quotes from "The Simpsons".
 - Like your favourite quote
 - Filter and sort quotes by name or text.
 
-## Installation and Setup
+## 🔧 Installation and Setup
 
 Clone the repository
 
@@ -38,7 +40,7 @@ Start the development server
 npm start
 ```
 
-## Reflection
+## 🧠 Reflection
 
 This project was developed as a side project for the Jump Academy Bootcamp to understand and implement React class components and lifecycle methods.
 
@@ -53,17 +55,27 @@ The project posed a series of challenges including:
 
 These challenges were significant in deepening my understanding of React and how different parts of an application interact with each other.
 
-### Tools Used
+### 🛠️ Technology Stack
 
-React
-Visual Studio Code
-Node
+- React
+- Visual Studio Code
+- Node
 
 For this project, Create React App was chosen to scaffold the application. It provided a comfortable and automated environment, taking care of configuration and allowing the focus to be on writing the React code itself.
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## License
+## 🤝 Contributing
+
+Contribuition, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Gunnar50/react-simpsons-quotes/issues)
+
+## ⭐️ Show your support
+
+Give a start if you liked and this project helped you!
+
+## 📝 License
 
 This project is open source and available under the MIT License.
 
